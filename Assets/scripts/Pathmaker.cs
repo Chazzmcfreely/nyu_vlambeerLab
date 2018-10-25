@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
+using UnityEngine.SceneManagement;
 
 // MAZE PROC GEN LAB
 // all students: complete steps 1-6, as listed in this file
@@ -22,27 +23,44 @@ public class Pathmaker : MonoBehaviour {
 
 
 	private int counter = 0;
-	public Transform floorPrefab;
+	public Transform[] floorPrefabs;
 	public Transform pathmakerSpherePrefab;
+	private int lifeSpan;
+	private float turnBorderOne;
+	private float turnBorderTwo;
+
 	
 	//	STABILIZE: 
 //	- code it so that all the Pathmakers can only spawn a grand total of 500 tiles in the entire world; how would you do that?
 //	- (hint: declare a "public static int" and have each Pathmaker check this "globalTileCount", somewhere in your code? if there are already enough tiles, then maybe the Pathmaker could Destroy my game object
 
 	public static int globalTileCount;
-	
-	
-	void Update () {
+
+	void Start()
+	{
+		lifeSpan = Random.Range(40, 75);
+		turnBorderOne = Random.Range(0.1f, 0.2f);
+		turnBorderTwo = Random.Range(0.1f, 0.2f);
+
+		
+	}
+
+
+	void Update ()
+	{
+		
+		int ranFloor = Random.Range(0, 4);
+		
 		if (globalTileCount < 500)
 		{
-			if (counter < 50)
+			if (counter < lifeSpan)
 			{
 				float ran = Random.value;
-				if (ran < 0.2f)
+				if (ran < turnBorderOne)
 				{
 					transform.Rotate(0f, 90f, 0f);
 				}
-				else if (ran >= 0.2f && ran < 0.4f)
+				else if (ran >= turnBorderOne && ran < turnBorderTwo)
 				{
 					transform.Rotate(0f, -90f, 0f);
 				}
@@ -51,7 +69,7 @@ public class Pathmaker : MonoBehaviour {
 					Instantiate(pathmakerSpherePrefab, transform.position, transform.rotation);
 				}
 
-				Instantiate(floorPrefab, transform.position, transform.rotation);
+				Instantiate(floorPrefabs[ranFloor], transform.position, transform.rotation);
 				transform.Translate(0f, 0f, 5f);
 				counter++;
 				globalTileCount++;
