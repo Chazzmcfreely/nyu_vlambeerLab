@@ -273,19 +273,19 @@ Prefab:
         type: 2}
       propertyPath: floorPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 4887849557792358, guid: fe4215fd6853f449c8405c90bdf417dc,
+      objectReference: {fileID: 4272926249584026, guid: ac21cbee2b62f48ee9c271e4223da9b2,
         type: 2}
     - target: {fileID: 114236225332500322, guid: e95bd97c5434e4a679ae239ee4d17cab,
         type: 2}
       propertyPath: floorPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 4552414509869182, guid: 1b7257eff94134aebbb3999d233b4550,
+      objectReference: {fileID: 4953669143516426, guid: b6384d954c45f4a0094a02548aabfe75,
         type: 2}
     - target: {fileID: 114236225332500322, guid: e95bd97c5434e4a679ae239ee4d17cab,
         type: 2}
       propertyPath: floorPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 4431463536765178, guid: 4df7da026e70a44e298363c4a5037908,
+      objectReference: {fileID: 4372919989662694, guid: 69c4750a878f44af1a043aa667576609,
         type: 2}
     - target: {fileID: 114236225332500322, guid: e95bd97c5434e4a679ae239ee4d17cab,
         type: 2}
